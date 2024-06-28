@@ -10,9 +10,11 @@ const fetchCourses = async (courseUrl) => {
     const $ = cheerio.load(html);
 
     const courses = [];
+    let count= 0;
     
-    $('._8165').each((index, element) => {
-      const courseName = $(element).find('h3.f7cc').text().trim();
+    $('div[class="_7911 acp_course_tuple "]').each((index, element) => {
+
+      /* const courseName = $(element).find('h3.f7cc').text().trim();
       const feesText = $(element).find('div[class="dcfd undefined"]').text();
       const fees = feesText.includes("₹") ? feesText.split("₹")[1].trim() : "Not Available";
       const duration = $(element).find('div[class="edfa"] span').text().trim() || "Not Available";
@@ -21,7 +23,9 @@ const fetchCourses = async (courseUrl) => {
         "course Name": courseName,
         "fees": fees,
         "course duration": duration
-      });
+      }); */
+
+
     });
 
     return courses;
